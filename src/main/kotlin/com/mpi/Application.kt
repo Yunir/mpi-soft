@@ -1,6 +1,7 @@
 package com.mpi
 
 import io.ktor.application.*
+import io.ktor.auth.*
 import io.ktor.features.*
 import io.ktor.html.*
 import io.ktor.routing.*
@@ -13,16 +14,14 @@ fun Application.main() {
         get("/") {
             call.respondHtml {
                 head {
-                    title { +"Ktor: Docker" }
+                    title { +"Krasty Krab Main page" }
                 }
                 body {
                     val runtime = Runtime.getRuntime()
-                    p { +"Hello from Ktor Netty engine running in Docker sample application" }
-                    p { +"Runtime.getRuntime().availableProcessors(): ${runtime.availableProcessors()}" }
-                    p { +"Runtime.getRuntime().freeMemory(): ${runtime.freeMemory()}" }
-                    p { +"Runtime.getRuntime().totalMemory(): ${runtime.totalMemory()}" }
-                    p { +"Runtime.getRuntime().maxMemory(): ${runtime.maxMemory()}" }
-                    p { +"System.getProperty(\"user.name\"): ${System.getProperty("user.name")}" }
+                    p { +"Hello to Krasty Krab statistics page!" }
+                    p { +"Processed clients for today: ${runtime.availableProcessors()}" }
+                    p { +"Current amount of money: ${runtime.freeMemory()}" }
+                    p { +"Computer user: ${System.getProperty("user.name")}" }
                 }
             }
         }
